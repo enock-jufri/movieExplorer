@@ -224,3 +224,69 @@ button {
     color: white;
     
 }
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    header h1, #watchlist {
+        padding-left: 0;
+        font-size: 18px;
+    }
+
+    .search {
+        height: auto;
+        padding: 20px;
+    }
+
+    #search {
+        width: 100%;
+    }
+
+    #button, .button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .filter {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dropdown-select {
+        width: 100%;
+    }
+
+    .movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .details_area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .paragraph {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .trailer-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .movie-card {
+        margin-bottom: 20px;
+    }
+}
