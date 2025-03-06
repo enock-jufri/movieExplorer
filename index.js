@@ -1,4 +1,3 @@
-
 const button = document.querySelector('#button')
 const movieGrid = document.querySelector(".movie-grid")
 const mainTitle = document.querySelector("#mainTitle")
@@ -121,7 +120,6 @@ function moreDetails(element) {
   details_area.innerHTML = ""
   page.innerHTML = ""
 
-
   const card = document.createElement('div')
   const details = document.createElement('div')
 
@@ -135,7 +133,6 @@ function moreDetails(element) {
   const watchlistButton = card.querySelector("#watchlistButton")
 
   watchlistButton.addEventListener("click", () => { myWatchlist(element) })
-
 
   const trailerUrl = `https://www.youtube.com/embed/${element.yt_trailer_code}`;
 
@@ -151,10 +148,25 @@ function moreDetails(element) {
   `
 
   details_area.appendChild(card)
-  myDownload(element)
   details_area.appendChild(details)
-
+  displayDownloadButtons(element)
 }
+
+function displayDownloadButtons(movie) {
+  movie.torrents.forEach(torrent => {
+    const quality = torrent.quality;
+    const url = torrent.url;
+
+    // Create a download link
+    const downloadLink = document.createElement("a");
+    downloadLink.className = "download"
+    downloadLink.href = url;
+    downloadLink.textContent = `Download ${quality.toUpperCase()}`;
+
+    details_area.appendChild(downloadLink);
+  })
+}
+
 function myWatchlist(element) {
   WatchlistStore.push(element)
   console.log(WatchlistStore);
@@ -186,20 +198,4 @@ function displayWatchlist(movies) {
 function removeMovie(index) {
   WatchlistStore.splice(index, 1)
   displayWatchlist(WatchlistStore)
-}
-
-
-function myDownload(movie) {
-  movie.torrents.forEach(torrent => {
-    const quality = torrent.quality;
-    const url = torrent.url;
-
-    // Create a download link
-    const downloadLink = document.createElement("a");
-    downloadLink.className = "download"
-    downloadLink.href = url;
-    downloadLink.textContent = `Download ${quality.toUpperCase()}`;
-
-    details_area.appendChild(downloadLink);
-  })
 }

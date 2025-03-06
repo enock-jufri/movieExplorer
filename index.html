@@ -11,14 +11,14 @@
 <body>
     <header class="header">
         <h1 id="mainTitle">SOLMOVIES</h1>
-        <h2 id="watchlist">watchlist</h2>
-    </header>
-    <div class="search">
-        <div>
-            <label for="search">search</label><br>
+        <div class="search-header">
+            <label for="search">search</label>
             <input type="text" id="search">
             <input type="submit" value="search" id="button">
         </div>
+        <h2 id="watchlist">watchlist</h2>
+    </header>
+    <div class="search">
         <div class="filter">
             <div>
                 <label for="genre">Genre</label><br>
@@ -38,7 +38,8 @@
         </div>
     </div>
     <div class="movie-grid">
-    </div><div class="details_area">
+    </div>
+    <div class="details_area">
     </div>
     <div class="pagination">
         <button onclick="changePage('prev')">
